@@ -2,121 +2,70 @@
 
 ## Problem
 
-People living in metropolitan cities face multiple challenges when managing their homes and properties.
+Finding or renting properties within a specific neighborhood or nearby locality is often unnecessarily complicated:
+- Large real estate portals are cluttered, generic, full of expired listings, and overwhelm users with unwanted calls from distant brokers.
+- Property owners with just a few properties to rent or sell in their local neighborhood need a simple, hassle-free way to showcase them without managing complex dashboards, paying heavy portal fees, or dealing with complicated CMS systems.
+- Nearby tenants and buyers simply want a clean, fast, and straightforward view of available properties with honest details, clear pricing, and direct contact options.
 
-Finding reliable plumbers, electricians, carpenters, painters, appliance repair technicians, renovation contractors, and other skilled professionals is often difficult and time-consuming.
-
-Customers frequently depend on different service providers, applications, and local contacts for their everyday household requirements.
-
-Similarly, people looking to rent rooms, find apartments, buy properties, or sell their existing properties often rely on separate platforms, brokers, and intermediaries.
-
-This fragmented ecosystem creates several problems:
-
-- Difficulty finding reliable and skilled service professionals.
-- Lack of transparent pricing and service quality.
-- Time-consuming service discovery and booking.
-- Limited access to verified professionals and contractors.
-- Difficulty managing complete home renovation projects.
-- Dependence on multiple platforms for home services and property transactions.
-- Challenges finding suitable rental accommodations and tenants.
-- Lack of a centralized solution for home maintenance and property management.
-
-Door2DoorCare aims to address these problems by bringing home services, renovations, and property-related solutions together on a single digital platform.
+Vastucred solves this by offering a fast, minimalist web landing page showcasing curated nearby residential properties for rent and sale, powered directly by a lightweight JSON dataset.
 
 ## Product
 
-Door2DoorCare is a web-based, all-in-one home services and property solutions platform designed for people living in metropolitan cities.
+Vastucred is a lightweight, minimalist landing page and property showcase tailored for nearby/local residential properties.
 
-The application will connect customers with skilled professionals for plumbing, electrical work, carpentry, painting, appliance repairs, household maintenance, and complete flat renovations.
-
-It will also allow users to discover, list, rent, buy, and sell residential properties, including individual rooms, flats, and apartments.
-
-The long-term goal is to create a unified ecosystem where users can manage their everyday home and property requirements through a single platform.
+Key characteristics:
+- **JSON-Driven Data:** All property listings (rent and sell) are maintained directly in a structured, version-controlled JSON data file (e.g., `data/properties.json`). There is no complex database setup or administrative CMS required.
+- **Minimalist Single Landing Page:** A clean, distraction-free landing page displaying available properties with quick filters for **Rent** and **Sale**.
+- **No Management Dashboards:** No tenant/owner login, no password portals, and no administrative management dashboards. Adding or updating a property is as simple as updating the JSON file.
+- **Hyperlocal & Direct:** Focused on nearby properties with upfront details (rent/sale price, security deposit, BHK, furnishing, area, amenities, and photos) and a direct contact call-to-action (e.g., WhatsApp message or phone call).
 
 ## Target Users
 
-- **Primary user:** Residents of metropolitan cities, including homeowners, tenants, working professionals, families, property buyers, and people seeking household repair, maintenance, or renovation services.
-- **Secondary user:** Plumbers, electricians, carpenters, painters, appliance technicians, renovation contractors, interior designers, landlords, property owners, property sellers, and authorized real estate professionals.
+- **Primary user:** Nearby residents, students, working professionals, and families looking for local rooms, flats, or houses to rent or buy in the area.
+- **Secondary user (Site Maintainer / Property Owner):** The owner or administrator who maintains listings by updating the structured JSON file.
 
 ## Core Use Cases
 
-- **Use case 1:** Find and book professionals for plumbing, electrical work, carpentry, painting, appliance repairs, and other household maintenance services.
-- **Use case 2:** Request quotations and hire contractors for partial or complete home renovation projects.
-- **Use case 3:** Search for rooms, flats, apartments, and shared accommodations available for rent.
-- **Use case 4:** Allow property owners to publish rental listings and connect with potential tenants.
-- **Use case 5:** Search for residential properties available for purchase.
-- **Use case 6:** Allow property owners to list residential properties for sale and receive inquiries.
-- **Use case 7:** Discover service providers based on location, service category, and availability.
-- **Use case 8:** View professional profiles, service descriptions, ratings, and customer reviews.
-- **Use case 9:** Submit service requests, schedule appointments, and monitor booking status.
-- **Use case 10:** Manage household maintenance requests and access previous service records.
+- **Use case 1:** View a curated collection of nearby residential properties directly on a fast-loading landing page.
+- **Use case 2:** Switch easily between **All**, **For Rent**, and **For Sale** properties.
+- **Use case 3:** View essential property details: high-quality images, monthly rent / sale price, security deposit, BHK configuration, furnishing status, area, and key amenities.
+- **Use case 4:** Connect directly with the owner or representative via a single click (WhatsApp chat, phone call, or simple inquiry modal).
+- **Use case 5:** Maintain and update property details, pricing, availability status (`available`, `rented`, `sold`), or add new properties by editing the JSON file.
 
 ## MVP Scope
 
-The proposed initial MVP will focus on validating the core home services marketplace and basic property discovery workflows, with public browsing available without login.
-
-- **Required capability 1:** User registration, login, and profile management for actions requiring authentication.
-- **Required capability 2:** Role-based access for customers, service professionals, property owners, and administrators.
-- **Required capability 3:** Public browsing of home service categories, professional listings, and approved public profile details without login.
-- **Required capability 4:** Public browsing of rental and sale property listings, including approved photos, descriptions, amenities, prices, and approximate locations without login.
-- **Required capability 5:** Guest-accessible search and filtering by city, locality, PIN code, service category, property type, and price.
-- **Required capability 6:** Service professional profiles, availability, and publicly approved ratings and reviews.
-- **Required capability 7:** Authenticated service request creation, booking management, and booking status tracking.
-- **Required capability 8:** Service request acceptance, rejection, and status updates by authorized professionals.
-- **Required capability 9:** Authenticated property listing creation, editing, and management by authorized owners.
-- **Required capability 10:** Authenticated property inquiries and controlled owner contact workflows.
-- **Required capability 11:** Administrative dashboard for managing users, professionals, services, and property listings.
-- **Required capability 12:** Basic ratings, reviews, and service history with appropriate access controls.
-- **Required capability 13:** Protect private phone numbers, email addresses, exact residential addresses, and other sensitive information from guest access unless specifically authorized for publication.
-- **Required capability 14:** Restrict public API responses, rendered HTML, Server Component payloads, and metadata to approved public information; enforce access rules using authorization and Supabase RLS where applicable.
-- **Required capability 15:** Require authentication only for protected actions, preserve the user's intended action through login, and maintain mobile-responsive, SEO-friendly public pages.
+- **Minimalist Hero Section:** Clean introduction highlighting nearby property availability.
+- **Category Filter:** Instant toggling between **All**, **Rent**, and **Sell**.
+- **Property Cards & Grid:** High-impact, responsive cards displaying property photos, badges (Rent/Sale, Available/Rented), pricing, BHK, furnishing, and locality.
+- **Property Detail View:** A lightweight modal or dedicated detail section showing full photo gallery, detailed description, amenities list, and neighborhood highlights.
+- **Direct Contact CTA:** Clickable action to start a WhatsApp conversation with pre-filled property details or direct phone call.
+- **JSON Schema & Validation:** Zod schema validating `data/properties.json` at build time to prevent malformed data or broken UI.
+- **Mobile-First & SEO Optimized:** Blazing fast load times, Next.js Image optimization, Open Graph tags, and responsive design for all screen sizes.
 
 ## Out of Scope
 
-The following capabilities are proposed for later phases and will not be included in the initial MVP:
-
-- Native Android and iOS applications.
-- AI-powered service recommendations and automated matching.
-- Advanced renovation project management and milestone tracking.
-- Complete property transaction processing and legal documentation.
-- Automated rental agreement generation.
-- Advanced subscription and loyalty programs.
-- Automated contractor bidding and tender management.
-- Multi-country operations.
-- Advanced analytics and predictive maintenance.
+- User authentication, login, signup, and user profiles.
+- Customer dashboards, owner management portals, or administrative backends.
+- Dynamic database CRUD operations or CMS admin panels.
+- Complex multi-city search engines and high-volume pagination.
+- Online payment processing, digital rent escrow, or contract drafting.
+- Home repairs, handyman services, or renovation contractors.
+- Commercial real estate.
 
 ## Constraints
 
-- **Platform:** Initially a web-based application.
-- **Target Market:** Metropolitan cities, with location-based service availability.
-- **Frontend:** Next.js 16, TypeScript, Tailwind CSS, shadcn/ui, and Radix UI.
-- **Backend:** Next.js 16 Route Handlers and Server Actions using a full-stack monolithic architecture.
-- **Database:** PostgreSQL, initially hosted by Supabase, with server-only TypeScript access through a limited PostgreSQL role. The host is configurable independently of Supabase Auth.
-- **Communication:** REST APIs.
-- **Deployment:** Vercel.
-- **Security:** Authentication, authorization, input validation, secure data access, and PostgreSQL Row Level Security where applicable.
-- **Privacy:** Customer addresses, contact details, and property information must be protected from unauthorized access.
-- **Performance:** Responsive interfaces, optimized page loading, and efficient database queries.
-- **Compatibility:** Support modern desktop and mobile browsers.
-- **Scalability:** The architecture should support expansion into additional metropolitan cities without requiring a complete application rewrite.
-- **Service Availability:** Services and property listings must be filtered according to supported locations.
-- **Regulatory Compliance:** Property listings, professional verification, customer data processing, and transactions must follow applicable laws and regulations.
+- **Platform:** Web-based responsive application.
+- **Data Source:** Local, strongly-typed JSON file (`data/properties.json`).
+- **Frontend Framework:** Next.js 16 (App Router), TypeScript, Tailwind CSS, shadcn/ui primitives.
+- **Validation:** Zod for validating the JSON property schema.
+- **Deployment:** Vercel (static site generation / server components for optimal speed and zero database latency).
+- **Performance:** Instant page load, Core Web Vitals targets (LCP ≤ 1.5s, CLS ≤ 0.05).
+- **Mobile Friendly:** Smooth touch interactions, optimized image loading, and responsive layouts.
 
 ## Success Criteria
 
-The proposed MVP will be considered successful when:
-
-- Guests can browse and search services and property listings without logging in, while private information remains protected.
-- Users can register, log in, and manage their profiles.
-- Customers can discover relevant home services based on their location.
-- Customers can submit service requests and track booking status.
-- Service professionals can manage their profiles and respond to service requests.
-- Property owners can create, update, and manage rental or sale listings.
-- Users can search for properties and submit inquiries.
-- Administrators can manage users, service categories, professionals, and property listings.
-- Core user workflows pass automated unit, integration, and end-to-end tests.
-- Authentication, authorization, public-data exposure, and database security checks pass.
-- The application operates reliably on Vercel across supported desktop and mobile browsers.
-- The system supports multiple metropolitan cities through configurable location data.
-
-Quantitative targets for user acquisition, booking completion, response times, service reliability, and customer satisfaction will be finalized during MVP planning.
+- The landing page loads almost instantaneously with zero reliance on external database roundtrips.
+- Visitors can view nearby rental and sale properties and filter between Rent and Sell effortlessly.
+- Prospective tenants and buyers can click a direct contact button (e.g. WhatsApp/Call) to reach out immediately.
+- The site owner can add, update, or remove properties simply by editing `data/properties.json`.
+- Automated build, type-check, and lint pass cleanly with 100% valid JSON data.

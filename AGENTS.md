@@ -1,6 +1,6 @@
 # AI Agent Instructions
 
-This file is the entry point for AI coding agents working on the Door2DoorCare repository.
+This file is the entry point for AI coding agents working on the Vastucred repository.
 
 ## Base Context
 
@@ -21,7 +21,7 @@ Before significant implementation, read the relevant information from:
 
 Do not load irrelevant context merely because it exists.
 
-Follow the approved Next.js 16, TypeScript, Supabase PostgreSQL, and Vercel architecture.
+Follow the approved Next.js 16, TypeScript, Zod, and Vercel architecture.
 
 ## Feature Workflow
 
@@ -42,11 +42,11 @@ Follow the approved Next.js 16, TypeScript, Supabase PostgreSQL, and Vercel arch
 ## Non-Negotiable Rules
 
 - Never invent missing business requirements or user permissions.
-- Never bypass authentication, authorization, ownership checks, or Supabase RLS.
-- Never expose private customer, professional, or property information through public pages or APIs.
-- Preserve guest access to approved public service and property listings.
+- Never bypass data validation or security checks.
+- Never expose private customer, tenant, or property owner information through public pages or APIs.
+- Preserve guest access to approved public rental and sale property listings.
 - Follow bot protection, anti-scraping, and configurable rate-limiting rules.
-- Never trust client-provided prices, roles, booking states, or privileged data.
+- Never trust client-provided prices, roles, listing states, or privileged data.
 - Keep domain logic separate from presentation and infrastructure where practical.
 - Use reusable functional React components and existing shadcn/ui primitives.
 - Avoid unnecessary classes, dependencies, abstractions, and architectural complexity.

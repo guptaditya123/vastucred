@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document defines the global UI/UX design system, visual conventions, interaction patterns, accessibility standards, and reusable component rules for Door2DoorCare. It applies to all public and authenticated interfaces. Feature-specific screens, workflows, fields, permissions, and functionality belong in `context/feature-specs/`, not this file.
+This document defines the global UI/UX design system, visual conventions, interaction patterns, accessibility standards, and reusable component rules for Vastucred. It applies to the minimalist landing page and property showcase interface. Feature-specific screens, fields, and functionality belong in `context/feature-specs/`, not this file.
 
 ---
 
@@ -28,20 +28,20 @@ This document defines the global UI/UX design system, visual conventions, intera
 
 # 3. Application Layout
 
-- Use a consistent site-wide header, main content area, and footer where appropriate.
-- Public interfaces may use a compact, rounded, pill-style navigation treatment.
-- Authenticated interfaces may use a sidebar and top bar when appropriate, while retaining the same design tokens.
+- Use a clean header with brand logo, concise tagline, and quick contact link.
+- Minimalist hero section introducing the nearby property collection with Rent / Sell toggle tabs.
+- Clean responsive property grid showcasing available homes with high-quality photo cards.
 - Prefer spacious page containers, clear visual hierarchy, and responsive grids.
 - Use consistent alignment, content widths, and section spacing.
 - On narrow screens, adapt navigation and side panels rather than compressing desktop layouts.
-- Do not prescribe feature-specific menu items, pages, or dashboard widgets here.
+- Do not prescribe feature-specific menu items or pages here.
 
 ## Layout Rules
 
 - Keep primary actions discoverable and navigation predictable.
 - Avoid unnecessary nested cards, panels, and competing focal points.
 - Use established layout primitives before introducing a new pattern.
-- Keep functional dashboards denser than marketing surfaces when needed, without changing the theme.
+- Feature direct WhatsApp and call actions prominently on each property card.
 
 ---
 
@@ -198,7 +198,7 @@ Supporting tokens inspired by the approved reference UI:
 - Render actions and information according to the user's authorized state.
 - Guest-facing interfaces may show only approved public information.
 - Hidden or disabled controls are presentation decisions, never authorization enforcement.
-- Protected operations must still be authorized on the server, with applicable Supabase RLS policies.
+- Protected operations must still be validated on the server.
 - Do not reveal private information through UI props, HTML, metadata, or client payloads.
 - Define role-specific capabilities in feature specifications, not in this global UI file.
 
